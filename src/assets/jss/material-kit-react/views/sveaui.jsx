@@ -54,7 +54,7 @@ const componentsStyle = {
     width: "100px!important",
   },
   ButtonFeedback: {
-    margin: "-40px 130px 10px",
+    margin: "10px 30px 10px",
     borderRadius: "6px",
     width: "200px!important",
   }

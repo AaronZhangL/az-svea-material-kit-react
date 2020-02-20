@@ -40,16 +40,6 @@ class SveaUI extends React.Component {
             Translate
         </Button>
         </div>
-        <div className={classes.ButtonFeedback}>
-        <Button
-        　raised
-        　variant="outlined"
-        　color="primary"
-        　size="small"
-          onClick={e => {this.setState({readOnly: !readOnly})}}>
-          {readOnly ? '[modify]' : '>>save<<'}
-        </Button>
-        </div>
         <div className={classes.MultilineWrite}>
           <TextField
             id="text-machine-language"
@@ -65,6 +55,16 @@ class SveaUI extends React.Component {
               disabled: Boolean(readOnly),
             }}
           />
+        </div>
+        <div className={classes.ButtonFeedback}>
+        <Button
+        　raised
+        　variant="contained"
+        　color="primary"
+        　size="small"
+          onClick={e => {this.setState({readOnly: !readOnly})}}>
+          {readOnly ? 'modify' : '-save-'}
+        </Button>
         </div>
       </form>
     );
