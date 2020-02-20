@@ -56,7 +56,7 @@ class SveaUI extends React.Component {
             label="Machine Language"
             multiline
             rows="10"
-            defaultValue="Default Value1"
+            defaultValue="RESULT"
             variant="outlined"
             disabled
             fullWidth
