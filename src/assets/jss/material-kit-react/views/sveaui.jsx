@@ -51,6 +51,12 @@ const componentsStyle = {
   ButtonTranslate: {
     margin: "15px 30px 10px",
     borderRadius: "6px",
+    width: "100px!important",
+  },
+  ButtonFeedback: {
+    margin: "-40px 130px 10px",
+    borderRadius: "6px",
+    width: "200px!important",
   }
 
 };

@@ -14,25 +14,23 @@ import TextField from '@material-ui/core/TextField';
 import { Button } from '@material-ui/core';
 
 class SveaUI extends React.Component {
+  state = {readOnly: true}
 
   render() {
     const { classes, ...rest } = this.props;
 
-    //const [value, setValue] = React.useState('Controlled');
-    const value = "abc";
-    const handleChange = event => {
-      //setValue(event.target.value);
-    };
+    // svea
+    const {readOnly} = this.state;
 
     return (
       <form className={classes.root} noValidate autoComplete="off">
         <div className={classes.MultilineLeft}>
           <TextField
-            id="full-width-text-field"
+            id="text-human-language"
             label="Human Language"
+            placeholder="Input human language here."
             multiline
             rows="10"
-            defaultValue="Default Value0"
             variant="outlined"
             fullWidth
           />
@@ -42,15 +40,30 @@ class SveaUI extends React.Component {
             Translate
         </Button>
         </div>
+        <div className={classes.ButtonFeedback}>
+        <Button
+        　raised
+        　variant="outlined"
+        　color="primary"
+        　size="small"
+          onClick={e => {this.setState({readOnly: !readOnly})}}>
+          {readOnly ? '[modify]' : '>>save<<'}
+        </Button>
+        </div>
         <div className={classes.MultilineWrite}>
           <TextField
-            id="full-width-text-field"
+            id="text-machine-language"
             label="Machine Language"
             multiline
             rows="10"
             defaultValue="Default Value1"
             variant="outlined"
+            disabled
             fullWidth
+            inputProps={{
+              readOnly: Boolean(readOnly),
+              disabled: Boolean(readOnly),
+            }}
           />
         </div>
       </form>
