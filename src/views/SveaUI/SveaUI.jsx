@@ -67,9 +67,10 @@ class SveaUI extends React.Component {
     .then( res => res.json())
     .then( data => {
         const { errors, translater } = data;
-
         this.setState({ humanLang: { ...this.state.humanLang, errors: [] }, machineLang: { ...this.state.machineLang, errors: [] }  })
-
+        //alert(data["translater"]["machineLang"])
+        //alert(translater.machineLang)
+        //alert(errors["machineLang"])
         if (errors) {
             for (let name in errors) {
                 const errorMessage = errors[name];
@@ -126,6 +127,7 @@ class SveaUI extends React.Component {
             rows="10"
             defaultValue="RESULT"
             variant="outlined"
+            value={ this.state.machineLang.value }
             disabled
             fullWidth
             inputProps={{
