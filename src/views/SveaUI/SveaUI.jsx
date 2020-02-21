@@ -71,6 +71,8 @@ class SveaUI extends React.Component {
         //alert(data["translater"]["machineLang"])
         //alert(translater.machineLang)
         //alert(errors["machineLang"])
+        //this.setState({machineLang : translater.machineLang});
+        console.log(this.state);
         if (errors) {
             for (let name in errors) {
                 const errorMessage = errors[name];
