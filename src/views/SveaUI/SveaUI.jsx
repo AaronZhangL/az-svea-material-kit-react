@@ -24,26 +24,32 @@ class SveaUI extends React.Component {
     super(props);
     // we use this to make the card to appear after the page has been rendered
     this.state = {
-        human_language: {
+        humanLang: {
             value: "",
             errors: []
         },
-        machine_language: {
+        machineLang: {
             value: "",
             errors: []
         },
         readOnly: true
     };
-
+    this.handleInputChange = this.handleInputChange.bind(this);
     this.submitForm = this.submitForm.bind(this);
+  }
+
+  handleInputChange(e) {
+      const {name, value} = e.target;
+
+      this.setState(state => ({ [name]: { ...this.state[name], value } }));
   }
 
   submitForm(e){
     e.preventDefault();
 
     const translater = {
-        humanLang: this.state.human_language.value,
-        machineLang: this.state.machine_language.value
+        humanLang: this.state.humanLang.value,
+        machineLang: this.state.machineLang.value
     }
 
     const url = 'http://localhost:3000/api/lang/translate';
@@ -62,7 +68,7 @@ class SveaUI extends React.Component {
     .then( data => {
         const { errors, translater } = data;
 
-        this.setState({ humanLang: { ...this.state.human_language, errors: [] }, machineLang: { ...this.state.machine_language, errors: [] }  })
+        this.setState({ humanLang: { ...this.state.humanLang, errors: [] }, machineLang: { ...this.state.machineLang, errors: [] }  })
 
         if (errors) {
             for (let name in errors) {
@@ -96,22 +102,25 @@ class SveaUI extends React.Component {
         <div className={classes.MultilineLeft}>
           <TextField
             id="text-human-language"
+            name="humanLang"
             label="Human Language"
             placeholder="Input human language here."
             multiline
             rows="10"
             variant="outlined"
+            onChange={this.handleInputChange}
             fullWidth
           />
         </div>
         <div className={classes.ButtonTranslate}>
-        <Button variant="contained" color="primary" size="small">
+        <Button type="submit" variant="contained" color="primary" size="small">
             Translate
         </Button>
         </div>
         <div className={classes.MultilineWrite}>
           <TextField
             id="text-machine-language"
+            name="machineLang"
             label="Machine Language"
             multiline
             rows="10"
