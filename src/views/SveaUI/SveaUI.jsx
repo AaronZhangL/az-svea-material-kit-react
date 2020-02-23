@@ -5,9 +5,7 @@ import React from "react";
 // import { Link } from "react-router-dom";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
-// @material-ui/icons
-
-// utils
+// @material
 // utils
 import Cookies from "../../utils/Cookies";
 import { login } from "../../store/actions";
@@ -17,6 +15,11 @@ import componentsStyle from "assets/jss/material-kit-react/views/sveaui.jsx";
 // import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import { Button } from '@material-ui/core';
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
+import { makeStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
+import Divider from '@material-ui/core/Divider';
 
 class SveaUI extends React.Component {
 
@@ -105,56 +108,92 @@ class SveaUI extends React.Component {
   }
 
   render() {
-    const { classes} = this.props;
+
+    const { classes } = this.props;
 
     // svea
     const {readOnly} = this.state;
 
     return (
       <form onSubmit={this.submitForm} className={classes.root} noValidate autoComplete="off">
-        <div className={classes.MultilineLeft}>
-          <TextField
-            id="text-human-language"
-            name="humanLang"
-            label="Human Language"
-            placeholder="Input human language here."
-            multiline
-            rows="10"
-            variant="outlined"
-            onChange={this.handleInputChange}
-            fullWidth
-          />
-        </div>
-        <div className={classes.ButtonTranslate}>
-        <Button type="submit" variant="contained" color="primary" size="small">
-            Translate
-        </Button>
-        </div>
-        <div className={classes.MultilineWrite}>
-          <TextField
-            id="text-machine-language"
-            name="machineLang"
-            label="Machine Language"
-            multiline
-            rows="10"
-            variant="outlined"
-            value={ this.state.machineLang.value }
-            fullWidth
-            inputProps={{
-              readOnly: Boolean(readOnly),
-              disabled: Boolean(readOnly),
-            }}
-          />
-        </div>
-        <div className={classes.ButtonFeedback}>
-        <Button
-        　variant="contained"
-        　color="primary"
-        　size="small"
-          onClick={e => {this.setState({readOnly: !readOnly})}}>
-          {readOnly ? 'modify' : '-save-'}
-        </Button>
-        </div>
+        <Typography variant="h6" component="h2" align="left" gutterBottom>
+          xRain Translate:
+        </Typography>
+        <Divider className={classes.divider} />
+          <Grid container spacing={1}>
+            <Grid item xs={1}>
+              <Paper className={classes.paper} elevation={0}>
+
+              </Paper>
+            </Grid>
+            <Grid item xs={5}>
+              <Paper className={classes.paper} elevation={0}>
+                <div className={classes.ButtonTranslate}>
+                  <Button type="submit" variant="contained" color="primary" size="small">
+                      Translate
+                  </Button>
+                </div>
+              </Paper>
+            </Grid>
+            <Grid item xs={5}>
+              <Paper className={classes.paper} elevation={0}>
+
+              </Paper>
+            </Grid>
+            <Grid item xs={1}>
+              <Paper className={classes.paper} elevation={0}>
+                <div className={classes.ButtonFeedback}>
+                  <Button
+                  　variant="contained"
+                  　color="primary"
+                  　size="small"
+                    onClick={e => {this.setState({readOnly: !readOnly})}}>
+                    {readOnly ? 'modify' : '-save-'}
+                  </Button>
+                </div>
+              </Paper>
+            </Grid>
+            <Grid item xs={6}>
+              <Paper className={classes.paper} elevation={0}>
+                <div className={classes.MultilineLeft}>
+                  <TextField
+                    id="text-human-language"
+                    name="humanLang"
+                    label="Human Language"
+                    placeholder="Input human language here."
+                    multiline
+                    rows="30"
+                    variant="outlined"
+                    onChange={this.handleInputChange}
+                    fullWidth
+                  />
+                </div>
+              </Paper>
+            </Grid>
+
+            <Grid item xs={6}>
+              <Paper className={classes.paper} elevation={0}>
+                <div className={classes.MultilineWrite}>
+                  <TextField
+                    id="text-machine-language"
+                    name="machineLang"
+                    label="Machine Language"
+                    multiline
+                    rows="30"
+                    variant="outlined"
+                    value={ this.state.machineLang.value }
+                    fullWidth
+                    inputProps={{
+                      readOnly: Boolean(readOnly),
+                      disabled: Boolean(readOnly),
+                    }}
+                  />
+                </div>
+              </Paper>
+            </Grid>
+
+
+          </Grid>
       </form>
     );
   }

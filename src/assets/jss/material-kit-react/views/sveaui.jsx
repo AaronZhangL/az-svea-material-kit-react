@@ -2,6 +2,10 @@ import { container } from "assets/jss/material-kit-react.jsx";
 
 const componentsStyle = {
   container,
+  paper: {
+    background: "#FFF0",
+
+  },
   brand: {
     color: "#FFFFFF",
     textAlign: "left"
@@ -23,7 +27,7 @@ const componentsStyle = {
     zIndex: "3"
   },
   mainRaised: {
-    margin: "-60px 30px 0px",
+    margin: "0px 30px 0px",
     borderRadius: "6px",
     boxShadow:
       "0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2)"
@@ -35,28 +39,28 @@ const componentsStyle = {
     textAlign: "center"
   },
   MultilineLeft: {
-    margin: "50px 30px 0px",
+    margin: "10px 20px 0px",
     borderRadius: "6px",
     width: "95%",
     boxShadow:
       "0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2)"
   },
   MultilineWrite: {
-    margin: "15px 30px 0px",
+    margin: "10px -8px 0px",
     borderRadius: "6px",
     width: "95%",
     boxShadow:
       "0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2)"
   },
   ButtonTranslate: {
-    margin: "15px 30px 10px",
+    margin: "8px 0px 5px auto",
     borderRadius: "6px",
     width: "100px!important",
   },
   ButtonFeedback: {
-    margin: "10px 30px 10px",
+    margin: "8px 0px 5px 20px",
     borderRadius: "6px",
-    width: "200px!important",
+    width: "100px!important",
   }
 
 };
