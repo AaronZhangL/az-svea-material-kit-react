@@ -67,16 +67,26 @@ class SveaUI extends React.Component {
     .then( res => res.json())
     .then( data => {
         const { errors, translater } = data;
+        //console.log(errors);
+        //console.log(translater);
+        //console.log(data.machineLang);
         this.setState({ humanLang: { ...this.state.humanLang, errors: [] }, machineLang: { ...this.state.machineLang, errors: [] }  })
-        //alert(data["translater"]["machineLang"])
-        //alert(translater.machineLang)
-        //alert(errors["machineLang"])
+        this.setState(data);
+        //this.setState({ humanLang: data.humanLang, machineLang: data.machineLang} });
+        //this.setState({humanLang: data.humanLang, machineLang: data.machineLang});
         //this.setState({machineLang : translater.machineLang});
+        //console.log(data);
         console.log(this.state);
+        //console.log(this.state.machineLang);
+        //console.log(this.state.machineLang.value);
+        //console.log(errors);
+        //console.log(this.state.humanLang);
+        //console.log(this.state.machineLang);
         if (errors) {
             for (let name in errors) {
                 const errorMessage = errors[name];
-
+                console.log(name);
+                console.log(errorMessage);
                 this.setState(state => ({ [name]: { ...state[name], errors: [ ...state[name].errors, errorMessage ] } }));
             }
 
@@ -127,10 +137,8 @@ class SveaUI extends React.Component {
             label="Machine Language"
             multiline
             rows="10"
-            defaultValue="RESULT"
             variant="outlined"
             value={ this.state.machineLang.value }
-            disabled
             fullWidth
             inputProps={{
               readOnly: Boolean(readOnly),
@@ -140,7 +148,6 @@ class SveaUI extends React.Component {
         </div>
         <div className={classes.ButtonFeedback}>
         <Button
-        　raised
         　variant="contained"
         　color="primary"
         　size="small"

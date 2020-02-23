@@ -84,11 +84,14 @@ class LoginPage extends React.Component {
         const { errors, user } = data;
 
         this.setState({ email: { ...this.state.email, errors: [] }, password: { ...this.state.password, errors: [] }  })
+        //console.log(data);
+        //console.log(errors);
+        //console.log(user);
 
         if (errors) {
             for (let name in errors) {
                 const errorMessage = errors[name];
-
+                //console.log(name);
                 this.setState(state => ({ [name]: { ...state[name], errors: [ ...state[name].errors, errorMessage ] } }));
             }
 
@@ -99,7 +102,7 @@ class LoginPage extends React.Component {
             const { token, ...userData } = user;
 
             Cookies.create('token', token, null);
-            
+
             this.props.dispatch(login(userData));
             this.props.history.push('/');
         }
@@ -181,7 +184,7 @@ class LoginPage extends React.Component {
                             </InputAdornment>
                           )
                         }}
-                        
+
                       />
                       <CustomInput
                         labelText="Password"
