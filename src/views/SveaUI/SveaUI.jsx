@@ -55,7 +55,7 @@ class SveaUI extends React.Component {
         machineLang: this.state.machineLang.value
     }
 
-    const url = 'http://localhost:3000/api/lang/translate';
+    const url = 'http://localhost:3000/api/v1/translate';
 
     fetch(url, {
         method: "POST", // *GET, POST, PUT, DELETE, etc.
