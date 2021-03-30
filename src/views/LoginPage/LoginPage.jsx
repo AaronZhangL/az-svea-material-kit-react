@@ -67,7 +67,7 @@ class LoginPage extends React.Component {
         password: this.state.password.value
     }
 
-    const url = 'http://localhost:3000/api/users/login';
+    const url = 'http://xrain.hcier.com:3000/api/users/login';
 
     fetch(url, {
         method: "POST", // *GET, POST, PUT, DELETE, etc.
