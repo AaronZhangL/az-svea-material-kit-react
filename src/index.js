@@ -15,6 +15,8 @@ import Components from "views/Components/Components.jsx";
 import LandingPage from "views/LandingPage/LandingPage.jsx";
 import ProfilePage from "views/ProfilePage/ProfilePage.jsx";
 import LoginPage from "views/LoginPage/LoginPage.jsx";
+// svea
+import SveaUi from "views/SveaUI/SveaUI.jsx";
 
 var hist = createBrowserHistory();
 
@@ -34,7 +36,8 @@ ReactDOM.render(
         <Route path="/profile-page" component={ProfilePage} />
         <Route path="/login-page" component={LoginPage} />
         <Route path="/components" component={Components} />
-        <Route path="/" component={LandingPage} />
+        <Route path="/sveaui" component={SveaUi} />
+        <Route path="/" component={SveaUi} />
       </Switch>
     </Router>
   </Provider>,
